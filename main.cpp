@@ -54,12 +54,22 @@ int main() {
 		outstream << n3 << ' ' << m3 << std::endl;
 		C = Lab3::MatrixOperations::mergeByAlternatingColumns(A, B, n1, m1, m2);
 		Lab3::ReadWrite::writeMatrix(outstream, C, n3, m3);
+
+		for (int i = 0; i < n3; i++)
+			delete[] C[i];
+		delete[] C;
 	}
 	else {
 		outstream << "The number of rows in the first and the second input matrices are not equal!" << std::endl;
 	}
 	outstream.close();
+	for (int i = 0; i < n1; i++)
+		delete[] A[i];
+	delete[] A;
 
+	for (int i = 0; i < n2; i++)
+		delete[] B[i];
+	delete[] B;
 
 	return 0;
 }
